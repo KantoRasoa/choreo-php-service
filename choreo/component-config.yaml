@@ -1,0 +1,17 @@
+version: 1.0
+type: REST_API
+buildSpec:
+  env:
+    - name: PHP_VERSION
+      value: "8.2"
+  command:
+    - php -S 0.0.0.0:8080
+deploySpec:
+  replicas: 1
+  env:
+    - name: ENV
+      value: production
+expose:
+  - port: 8080
+    ingress:
+      context: /
